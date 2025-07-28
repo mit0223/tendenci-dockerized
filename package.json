@@ -1,0 +1,12 @@
+{
+  "name": "mitsuru/tendenci",
+  "version": "1.0.0-rc.0",
+  "description": "Dummy package.json to manage container image version tag",
+  "repository": "https://github.com/mit0223/tendenci-dockerized.git",
+  "author": "Mitsuru Nakakawaji <mitsuru@procube.jp>",
+  "private": true,
+  "scripts": {
+    "build": "docker build --no-cache=true --rm -t tendenci .",
+    "start": "docker-compose up"
+  }
+}

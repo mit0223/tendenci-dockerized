@@ -10,12 +10,12 @@ services:
         ports:
             - 5432:5432
         environment:
-            - TENDENCI_USER=${POSTGRES_USER:-tendenci-usr}
+            - TENDENCI_USER=${POSTGRES_USER:-tendenci}
             - TENDENCI_DB=${POSTGRES_DB:-tendenci}
             - TENDENCI_PASS=${POSTGRES_PASSWORD:-mycomplexpassword}
             - POSTGRES_PASSWORD=${POSTGRES_SUPERUSER_PASSWORD:-mycomplexpassword}
         healthcheck:
-            test: ["CMD", "pg_isready", "-h", "localhost", "-d", "${POSTGRES_DB:-tendenci}", "-U", "${POSTGRES_USER:-tendenci-usr}", "-p", "5432"]
+            test: ["CMD", "pg_isready", "-h", "localhost", "-d", "${POSTGRES_DB:-tendenci}", "-U", "${POSTGRES_USER:-tendenci}", "-p", "5432"]
             interval: 20s
             timeout: 5s
             retries: 5
@@ -35,7 +35,7 @@ services:
             - 6080:8000
         environment:
             # Postgresql setup
-            - DB_USER=${POSTGRES_USER:-tendenci-usr}
+            - DB_USER=${POSTGRES_USER:-tendenci}
             - DB_NAME=${POSTGRES_DB:-tendenci}
             - DB_PASS=${POSTGRES_PASSWORD:-mycomplexpassword}
             - DB_HOST=${DB_HOST:-postgresql}
@@ -46,7 +46,7 @@ services:
             - ADMIN_MAIL=${ADMIN_MAIL:-admin@example.com}
             - ADMIN_PASS=${ADMIN_PASS:-password}
             - SITE_URL=${SITE_URL:-HTTP://myurl.com}
-            - TIME_ZONE=${TIME_ZONE:-GMT+0}
+            - TIME_ZONE=${TIME_ZONE:-JST+9}
 
 volumes:
     root-vol:
